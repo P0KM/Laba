@@ -1,0 +1,23 @@
+#include "stdafx.h"
+
+#include <iostream> 
+#include <cmath> 
+#define M_PI 3.1415926535897932384626433832795 
+
+using namespace std;
+
+int main() {
+
+	setlocale(0, "rus");
+
+	int r, f;
+
+	std::cout<< "введите координаты точки: расстояние точки от полюса и полярный угол (в градусах): ";
+	std::cin>>r>>f;
+	std::cout<<"\nполярным координатам ("<<r<<";"<<f<<") в декартовой системе соответствуют координаты ";
+	f *= M_PI / 180;
+	int x = r*cos(f);
+	int y = r*sin(f);
+	std::cout<<x<<":"<<y<<"\n";
+	return 0;
+}
