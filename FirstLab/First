@@ -10,14 +10,14 @@ int main() {
 
 	setlocale(0, "rus");
 
-	int r, f;
+	double r, f;
 
 	std::cout << "\tВведите координаты точки: расстояние точки от полюса и полярный угол (в градусах): ";
 	std::cin >> r >> f;
 	std::cout << "\n\tПолярным координатам (" << r << ";" << f << ") в декартовой системе соответствуют координаты ";
 	f *= M_PI / 180;
-	int x = r*cos(f);
-	int y = r*sin(f);
+	double x = r*cos(f);
+	double y = r*sin(f);
 	std::cout << x << ":" << y << "\n";
 	std::cin >> f;
 	return 0;
