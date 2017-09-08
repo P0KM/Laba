@@ -1,0 +1,31 @@
+#include "stdafx.h"
+
+#include <iostream> 
+
+using namespace std;
+
+int main() {
+
+	setlocale(0, "rus");
+
+	double x1, y1, x2, y2;
+
+	std::cout << "\tВведите первую точку: ";
+	std::cout << "\n\tX = ";
+	std::cin >> x1;
+	std::cout << "\tY = ";
+	std::cin >> y1;
+
+	std::cout << "\tВведите вторую точку: ";
+	std::cout << "\n\tX = ";
+	std::cin >> x2;
+	std::cout << "\tY = ";
+	std::cin >> y2;
+	
+	if((x1==0&&y1==0)||(x2==0&&y2==0))
+		std::cout << "\n\tОдна из точек лежит в начале координат";
+	else 
+		std::cout << "\n\tНиодна из точек не лежит в начале координат";
+	
+	return 0;
+}
