@@ -1,0 +1,50 @@
+#include "stdafx.h"
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+
+	setlocale(0, "rus");
+
+	double a, b, dx, e, cv, s=0;
+
+	std::cout << "\tВведите интервал [a, b]: ";
+	std::cout << "\n\ta = ";
+	std::cin >> a;
+	std::cout << "\tb = ";
+	std::cin >> b;
+
+	std::cout << "\tВведите шаг: ";
+	std::cout << "\n\tdX = ";
+	std::cin >> dx;
+
+	std::cout << "\tВведите необходимую точность: ";
+	std::cout << "\n\tE = ";
+	std::cin >> e;
+	
+	double a0,pr,d;
+	while (a < b) {
+		a0 = a;
+		pr = 0;
+		d = 1;
+		for(;;)
+		{
+			cv = 1.0 / (pow(a, d)*d);
+			d += 2;
+			pr += cv;
+			if (cv < e)
+			{
+				std::cout << "\n\tA = " << a << "\tpr =" << pr*2 << "\tln = " << log((a + 1) / (a - 1));
+				break;
+			}
+		}
+		s += pr*2;
+		a += dx;
+	}
+	std::cout << "\tСумма ряда =  " <<  s;
+
+	return 0;
+}
