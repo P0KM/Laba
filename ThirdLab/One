@@ -9,14 +9,19 @@ struct car {
 
 car CreateCar() {
 	car NewCar;
-	std::cin >> NewCar.model >> NewCar.num >> NewCar.name;
+	std::cout << "Enter Model: ";
+	std::cin >> NewCar.model;
+	std::cout << "Enter Number: ";
+	std::cin >> NewCar.num;
+	std::cout << "Enter Name: ";
+	std::cin >> NewCar.name;
 	return NewCar;
 }
 
 void SelectCar(car List[], int n, std::string key) {
 	for (int i = 0; i<n; i++)
 		if (List[i].model == key)
-			std::cout << List[i].num << ' ' << List[i].name << std::endl;
+			std::cout <<"Number: "<<List[i].num << " Owner Name:" << List[i].name << std::endl;
 
 }
 
@@ -26,8 +31,11 @@ int main()
 	car List[n];
 	std::string key;
 	for (int i = 0; i < n; i++)
+	{
+		std::cout << i << " of " << n<< std::endl;
 		List[i] = CreateCar();
-	std::cout << "enter model: ";
+	}
+	std::cout << "Enter Model To Find: ";
 	std::cin >> key;
 	SelectCar(List, n, key);
 	std::cin >> key;
