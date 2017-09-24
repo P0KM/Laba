@@ -1,0 +1,29 @@
+#include "stdafx.h"
+#include <locale>
+#include <string>
+#include <iostream>
+using namespace std;
+
+int main(int argc, char* argv[])
+{
+	setlocale(LC_ALL, "rus");
+
+	string str;
+	int d = 0, a = 0;
+	cin >> str;
+	for each (char c in str)
+	{
+		if (isdigit(c))
+			d++;
+		else if (isalpha(c))
+			a++;
+	}
+	if (a > d)
+		cout << "Больше символов" << endl;
+	else if(a==d)
+		cout << "Равно" << endl;
+	else
+		cout << "Больше цифр" << endl;
+	system("pause");
+	return 0;
+}
