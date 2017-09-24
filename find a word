@@ -9,6 +9,7 @@ int main(int argc, char* argv[])
 	setlocale(LC_ALL, "rus");
 
 	ifstream fin("fale.txt");
+	ofstream fout("output.txt");
 
 	if (!fin.is_open())
 		cout << "Файл не может быть открыт!\n";
@@ -30,8 +31,10 @@ int main(int argc, char* argv[])
 
 			if (c == '.')
 			{
-				if (w)
+				if (w) {
 					cout << buff << endl;
+					fout << buff << endl;
+				}
 
 				buff.clear();
 				w = false;
@@ -54,7 +57,7 @@ int main(int argc, char* argv[])
 				}
 			}
 		}
-
+		fout.close();
 		fin.close();
 	}
 	system("pause");
