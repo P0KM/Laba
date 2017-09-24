@@ -1,0 +1,75 @@
+// fileee.cpp: определяет точку входа для консольного приложения.
+//
+
+#include "stdafx.h"
+#include <cmath>
+#include <iostream>
+using namespace std;
+
+class Base {
+public:
+	Base() {
+		d1 = 0;
+		d2 = 0;
+	}
+	void enter_param(double d1, double d2) {
+		this->d1 = d1;
+		this->d2 = d2;
+	}
+	void multipli() {
+		cout << d1*d2 << endl;
+	}
+	void print() {
+		cout << "d1 = " << d1 << " d2 = " << d2 << endl;
+	}
+protected:
+	double d1, d2;
+};
+
+class CRomb :public Base
+{
+public:
+	CRomb():Base()
+	{
+		S = 0;
+		P = 0;
+		l = 0;
+	}
+	void square() {
+		S = d1*d2 / 2;
+		cout << S << endl;
+	}
+	void perimetr() {
+		P = 4 * sqrt(d1*d1 / 2 + d2*d2 / 2);
+		cout << P << endl;
+	}
+	void a_lenght() {
+		l = sqrt(d1*d1 / 2 + d2*d2 / 2);
+		cout << l << endl;
+	}
+private:
+	double S;
+	double P;
+	double l;
+};
+
+int main(int argc, char* argv[])
+{
+	setlocale(LC_ALL, "rus");
+
+	Base b;
+
+	b.enter_param(4, 5);
+	b.multipli();
+	b.print();
+	
+	CRomb r;
+	r.enter_param(2, 15);
+	r.multipli();
+	r.print()
+	r.a_lenght();
+	r.perimetr();
+	r.square();
+	system("pause");
+	return 0;
+}
