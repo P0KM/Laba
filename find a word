@@ -1,3 +1,6 @@
+// fileee.cpp: определяет точку входа для консольного приложения.
+//
+
 #include "stdafx.h"
 #include <fstream>
 #include <string>
@@ -11,7 +14,75 @@ int main(int argc, char* argv[])
 	ifstream fin("fale.txt");
 	ofstream fout("output.txt");
 
-	if (!fin.is_open())
+	if (!fin.is_open()|| !fout.is_open())
+		cout << "Файл не может быть открыт!\n";
+	else
+	{
+		cout << "Введите слово:\n";
+		string word;
+		string buff;
+		char c;
+		bool w = false;
+
+		cin >> word;
+
+		while (!fin.eof()) {
+
+			c = fin.get();
+
+			buff += c;
+
+			if (c == '.')
+			{
+				if (w) {
+					cout << buff << endl;
+					fout << buff << endl;
+				}
+
+				buff.clear();
+				w = false;
+			}
+
+			if (c == word[0])
+			{
+				w = true;
+				for (int j = 1; j < word.length(); j++)
+				{
+
+					c = fin.get();
+					buff += c;
+					if (c != word[j])
+					{
+						w = false;
+						break;
+					}
+
+				}
+			}
+		}
+		fout.close();
+		fin.close();
+	}
+	system("pause");
+	return 0;
+}
+// fileee.cpp: определяет точку входа для консольного приложения.
+//
+
+#include "stdafx.h"
+#include <fstream>
+#include <string>
+#include <iostream>
+using namespace std;
+
+int main(int argc, char* argv[])
+{
+	setlocale(LC_ALL, "rus");
+
+	ifstream fin("fale.txt");
+	ofstream fout("output.txt");
+
+	if (!fin.is_open()|| !fout.is_open())
 		cout << "Файл не может быть открыт!\n";
 	else
 	{
