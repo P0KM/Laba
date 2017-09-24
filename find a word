@@ -1,0 +1,62 @@
+#include "stdafx.h"
+#include <fstream>
+#include <string>
+#include <iostream>
+using namespace std;
+
+int main(int argc, char* argv[])
+{
+	setlocale(LC_ALL, "rus");
+
+	ifstream fin("fale.txt");
+
+	if (!fin.is_open())
+		cout << "Файл не может быть открыт!\n";
+	else
+	{
+		cout << "Введите слово:\n";
+		string word;
+		string buff;
+		char c;
+		bool w = false;
+
+		cin >> word;
+
+		while (!fin.eof()) {
+
+			c = fin.get();
+
+			buff += c;
+
+			if (c == '.')
+			{
+				if (w)
+					cout << buff << endl;
+
+				buff.clear();
+				w = false;
+			}
+
+			if (c == word[0])
+			{
+				w = true;
+				for (int j = 1; j < word.length(); j++)
+				{
+
+					c = fin.get();
+					buff += c;
+					if (c != word[j])
+					{
+						w = false;
+						break;
+					}
+
+				}
+			}
+		}
+
+		fin.close();
+	}
+	system("pause");
+	return 0;
+}
